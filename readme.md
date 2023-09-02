@@ -12,6 +12,7 @@ key = Fernet.generate_key()
 with open("Functions/encryptionKey.txt","w") as encryptionKeyFile:
     encryptionKeyFile.write(key.decode("UTF-8"))
 
+cipher = Fernet(key)
 while True:
     cipherText = cipher.encrypt(input("Input your plaintext string to encrypt (submit \"q\" to exit)").encode("UTF-8"))
     if not cipherText.lower() == "q":
